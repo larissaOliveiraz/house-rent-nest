@@ -12,9 +12,11 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
+    "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
@@ -22,6 +24,7 @@
       "@domain/*": ["./src/domain/*"],
       "@database/*": ["./src/database/*"],
       "@shared/*": ["./src/shared/*"],
+      "@test/*": ["./test/*"]
     }
   }
 }

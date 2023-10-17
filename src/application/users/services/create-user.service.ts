@@ -1,7 +1,7 @@
 import { UserRepository } from '@domain/repositories/user.repository';
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { Role } from '@shared/enums/role.enum';
 import { hash } from 'bcryptjs';
-import { Role } from 'src/shared/enums/role.enum';
 
 type CreateUserRequest = {
   name: string;
@@ -27,7 +27,7 @@ export class CreateUserService {
       name,
       email,
       password: passwordHash,
-      role: role ? role : 'CLIENT',
+      role: role ? role : Role.CLIENT,
     });
 
     return { user };
