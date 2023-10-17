@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from './application/database/database.module';
+import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './application/users/users.module';
 
 @Module({
