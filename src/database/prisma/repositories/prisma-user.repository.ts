@@ -1,7 +1,8 @@
 import { UserRepository } from '@domain/repositories/user.repository';
-import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 import { Injectable } from '@nestjs/common';
+import { CreateUserDTO } from '@shared/dtos/user.dto';
+import { PrismaMapper } from '../prisma.mapper';
 
 @Injectable()
 export class PrismaUserRepository implements UserRepository {
@@ -12,7 +13,7 @@ export class PrismaUserRepository implements UserRepository {
       where: { id },
     });
 
-    return user ? user : null;
+    return user ? PrismaMapper.toDomain(user) : null;
   }
 
   async findByEmail(email: string) {
@@ -22,14 +23,14 @@ export class PrismaUserRepository implements UserRepository {
       },
     });
 
-    return user ? user : null;
+    return user ? PrismaMapper.toDomain(user) : null;
   }
 
-  async create(newUser: Prisma.UserCreateInput) {
+  async create(newUser: CreateUserDTO) {
     const user = await this.prisma.user.create({
       data: newUser,
     });
 
-    return user;
+    return PrismaMapper.toDomain(user);
   }
 }
