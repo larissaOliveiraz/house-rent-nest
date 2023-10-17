@@ -1,5 +1,6 @@
 import { UserRepository } from '@domain/repositories/user.repository';
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { hash } from 'bcryptjs';
 import { Role } from 'src/shared/enums/role.enum';
 
 type CreateUserRequest = {
@@ -20,10 +21,12 @@ export class CreateUserService {
       throw new BadRequestException('This email is already registered.');
     }
 
+    const passwordHash = await hash(password, 6);
+
     const user = await this.userRepository.create({
       name,
       email,
-      password,
+      password: passwordHash,
       role: role ? role : 'CLIENT',
     });
 
