@@ -1,3 +1,4 @@
+import { EntityNotFoundException } from '@domain/exceptions/entity-not-found.exception';
 import { UserRepository } from '@domain/repositories/user.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
 
@@ -13,7 +14,7 @@ export class GetUserProfileService {
     const profile = await this.userRepository.findById(id);
 
     if (!profile) {
-      throw new NotFoundException('User not found.');
+      throw new EntityNotFoundException('User not found.');
     }
 
     return { profile };

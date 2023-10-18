@@ -1,6 +1,6 @@
 import { InMemoryUserRepository } from '@test/repositories/in-memory-user-repository.repository';
 import { CreateUserService } from './create-user.service';
-import { BadRequestException } from '@nestjs/common';
+import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
 
 describe('Create User Service', () => {
   let userRepository: InMemoryUserRepository;
@@ -34,6 +34,6 @@ describe('Create User Service', () => {
         email: 'user@email.com',
         password: '123',
       }),
-    ).rejects.toBeInstanceOf(BadRequestException);
+    ).rejects.toBeInstanceOf(EntityAlreadyExistsException);
   });
 });

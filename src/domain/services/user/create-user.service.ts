@@ -1,3 +1,4 @@
+import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
 import { UserRepository } from '@domain/repositories/user.repository';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { Role } from '@shared/enums/role.enum';
@@ -18,7 +19,7 @@ export class CreateUserService {
     const userExists = await this.userRepository.findByEmail(email);
 
     if (userExists) {
-      throw new BadRequestException('This email is already registered.');
+      throw new EntityAlreadyExistsException('User');
     }
 
     const passwordHash = await hash(password, 6);

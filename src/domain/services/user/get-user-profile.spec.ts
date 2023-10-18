@@ -1,6 +1,6 @@
 import { InMemoryUserRepository } from '@test/repositories/in-memory-user-repository.repository';
 import { GetUserProfileService } from './get-user-profile.service';
-import { NotFoundException } from '@nestjs/common';
+import { EntityNotFoundException } from '@domain/exceptions/entity-not-found.exception';
 
 describe('Create User Service', () => {
   let userRepository: InMemoryUserRepository;
@@ -27,6 +27,6 @@ describe('Create User Service', () => {
   it('should not be able to get the user profile if the id does not exist', async () => {
     await expect(() =>
       service.execute({ id: 'non-existing-id' }),
-    ).rejects.toBeInstanceOf(NotFoundException);
+    ).rejects.toBeInstanceOf(EntityNotFoundException);
   });
 });
