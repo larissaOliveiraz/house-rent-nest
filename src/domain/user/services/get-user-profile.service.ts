@@ -1,6 +1,6 @@
 import { EntityNotFoundException } from '@domain/exceptions/entity-not-found.exception';
-import { UserRepository } from '@domain/repositories/user.repository';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { UserRepository } from '@domain/user/user.repository';
+import { Injectable } from '@nestjs/common';
 
 type GetUserProfileRequest = {
   id: string;

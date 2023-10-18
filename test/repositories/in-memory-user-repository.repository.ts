@@ -1,6 +1,6 @@
-import { UserRepository } from '@domain/repositories/user.repository';
-import { CreateUserDTO, UserDTO } from '@shared/dtos/user.dto';
-import { Role } from '@shared/enums/role.enum';
+import { UserRepository } from '@domain/user/user.repository';
+import { CreateUserDTO, UserDTO } from '@common/dtos/user.dto';
+import { Role } from '@common/enums/role.enum';
 import { randomUUID } from 'crypto';
 
 export class InMemoryUserRepository implements UserRepository {

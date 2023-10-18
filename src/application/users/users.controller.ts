@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateUserService } from '@domain/services/user/create-user.service';
-import { CreateUserDTO } from '@shared/dtos/user.dto';
-import { GetUserProfileService } from '../../domain/services/user/get-user-profile.service';
+import { CreateUserService } from '@domain/user/services/create-user.service';
+import { CreateUserDTO } from '@common/dtos/user.dto';
+import { GetUserProfileService } from '../../domain/user/services/get-user-profile.service';
 
 @Controller('users')
 export class UsersController {
@@ -12,8 +12,8 @@ export class UsersController {
 
   @Get('/:id')
   async findOne(@Param('id') id: string) {
-    const { user } = await this.getUserProfileService.execute({ id });
-    const { password, ...userView } = user;
+    const { profile } = await this.getUserProfileService.execute({ id });
+    const { password, ...userView } = profile;
     return userView;
   }
 

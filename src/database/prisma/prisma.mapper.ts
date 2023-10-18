@@ -1,5 +1,5 @@
 import { User } from '@prisma/client';
-import { Role } from '@shared/enums/role.enum';
+import { Role } from '@common/enums/role.enum';
 
 export class PrismaMapper {
   static toDomain(user: User) {

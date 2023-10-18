@@ -1,7 +1,7 @@
 import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
-import { UserRepository } from '@domain/repositories/user.repository';
-import { BadRequestException, Injectable } from '@nestjs/common';
-import { Role } from '@shared/enums/role.enum';
+import { UserRepository } from '@domain/user/user.repository';
+import { Injectable } from '@nestjs/common';
+import { Role } from '@common/enums/role.enum';
 import { hash } from 'bcryptjs';
 
 type CreateUserRequest = {

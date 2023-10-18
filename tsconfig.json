@@ -23,7 +23,7 @@
       "@application/*": ["./src/application/*"],
       "@domain/*": ["./src/domain/*"],
       "@database/*": ["./src/database/*"],
-      "@shared/*": ["./src/shared/*"],
+      "@common/*": ["./src/common/*"],
       "@test/*": ["./test/*"]
     }
   }
