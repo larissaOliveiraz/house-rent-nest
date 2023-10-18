@@ -1,4 +1,4 @@
-import { InMemoryUserRepository } from '@test/repositories/in-memory-user-repository.repository';
+import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
 import { SignInService } from './sign-in.service';
 import { JwtService } from '@nestjs/jwt';
 import { hash } from 'bcryptjs';

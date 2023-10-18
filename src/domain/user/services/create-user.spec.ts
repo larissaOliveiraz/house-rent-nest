@@ -1,4 +1,4 @@
-import { InMemoryUserRepository } from '@test/repositories/in-memory-user-repository.repository';
+import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
 import { CreateUserService } from './create-user.service';
 import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
 

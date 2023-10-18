@@ -1,4 +1,4 @@
-import { InMemoryUserRepository } from '@test/repositories/in-memory-user-repository.repository';
+import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
 import { GetUserProfileService } from './get-user-profile.service';
 import { EntityNotFoundException } from '@domain/exceptions/entity-not-found.exception';
 

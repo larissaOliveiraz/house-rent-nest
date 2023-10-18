@@ -18,6 +18,30 @@ model User {
   @@map("users")
 }
 
+model Location {
+  id          String @id @default(uuid())
+  description String @unique @db.VarChar(50)
+
+  @@map("locations")
+}
+
+model Type {
+  id          String @id @default(uuid())
+  description String @unique @db.VarChar(50)
+
+  @@map("types")
+}
+
+model Address {
+  id     String @id @default(uuid())
+  street String @db.VarChar(100)
+  number String @db.VarChar(20)
+  state  String @db.VarChar(10)
+  city   String @db.VarChar(100)
+
+  @@map("addresses")
+}
+
 enum Role {
   CLIENT
   LANDLORD
