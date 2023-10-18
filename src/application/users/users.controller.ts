@@ -10,7 +10,7 @@ export class UsersController {
     private readonly getUserProfileService: GetUserProfileService,
   ) {}
 
-  @Get('/:id')
+  @Get(':id')
   async findOne(@Param('id') id: string) {
     const { profile } = await this.getUserProfileService.execute({ id });
     const { password, ...userView } = profile;

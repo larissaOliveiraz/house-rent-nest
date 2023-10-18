@@ -20,7 +20,7 @@ export class SignInService {
     const { user } = await this.verifyCredentials({ email, password });
 
     const payload = { sub: user.id };
-    const token = this.jwtService.signAsync(payload);
+    const token = await this.jwtService.signAsync(payload);
 
     return { token };
   }
