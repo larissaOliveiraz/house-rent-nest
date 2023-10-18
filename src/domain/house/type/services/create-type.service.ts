@@ -1,10 +1,12 @@
 import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
-import { TypeRepository } from '../type.repository';
+import { TypeRepository } from '../types.repository';
+import { Injectable } from '@nestjs/common';
 
 type CreateTypeRequest = {
   description: string;
 };
 
+@Injectable()
 export class CreateTypeService {
   constructor(private typeRepository: TypeRepository) {}
 

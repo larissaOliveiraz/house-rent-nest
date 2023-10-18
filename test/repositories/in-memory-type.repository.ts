@@ -1,6 +1,6 @@
 import { CreateTypeDTO } from '@common/dtos/house.dto';
-import { Type } from '@domain/house/type/type.entity';
-import { TypeRepository } from '@domain/house/type/type.repository';
+import { Type } from '@domain/house/type/types.entity';
+import { TypeRepository } from '@domain/house/type/types.repository';
 import { randomUUID } from 'crypto';
 
 export class InMemoryTypeRepository implements TypeRepository {
