@@ -1,10 +1,11 @@
 import { UserRepository } from '@domain/user/user.repository';
-import { CreateUserDTO, UserDTO } from '@common/dtos/user.dto';
+import { CreateUserDTO } from '@common/dtos/user.dto';
 import { Role } from '@common/enums/role.enum';
 import { randomUUID } from 'crypto';
+import { User } from '@domain/user/user.entity';
 
 export class InMemoryUserRepository implements UserRepository {
-  users: UserDTO[] = [];
+  users: User[] = [];
 
   async findById(id: string) {
     const user = this.users.find((item) => item.id === id);
@@ -19,7 +20,7 @@ export class InMemoryUserRepository implements UserRepository {
   }
 
   async create(user: CreateUserDTO) {
-    const newUser: UserDTO = {
+    const newUser: User = {
       id: user.id ? user.id : randomUUID(),
       name: user.name,
       email: user.email,
