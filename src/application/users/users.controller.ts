@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import { CreateUserService } from '@domain/user/services/create-user.service';
 import { CreateUserDTO } from '@common/dtos/user.dto';
 import { GetUserProfileService } from '../../domain/user/services/get-user-profile.service';
+import { AuthGuard } from '@application/@guards/auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -10,9 +19,12 @@ export class UsersController {
     private readonly getUserProfileService: GetUserProfileService,
   ) {}
 
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    const { profile } = await this.getUserProfileService.execute({ id });
+  @Get()
+  @UseGuards(AuthGuard)
+  async findOne(@Request() request) {
+    const { profile } = await this.getUserProfileService.execute({
+      id: request.user.sub,
+    });
     const { password, ...userView } = profile;
     return userView;
   }

@@ -1,4 +1,4 @@
-import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
+import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 import { UserRepository } from '@domain/user/user.repository';
 import { Injectable } from '@nestjs/common';
 import { Role } from '@common/enums/role.enum';

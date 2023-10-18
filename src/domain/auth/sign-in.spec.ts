@@ -2,7 +2,7 @@ import { InMemoryUserRepository } from '@test/repositories/in-memory-user.reposi
 import { SignInService } from './sign-in.service';
 import { JwtService } from '@nestjs/jwt';
 import { hash } from 'bcryptjs';
-import { InvalidCredentials } from '@domain/exceptions/invalid-credentialst.exception';
+import { InvalidCredentials } from '@domain/@exceptions/invalid-credentialst.exception';
 
 describe('Sign In Service', () => {
   let userRepository: InMemoryUserRepository;

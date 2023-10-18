@@ -1,4 +1,4 @@
-import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
+import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 import { TypeRepository } from '../types.repository';
 import { Injectable } from '@nestjs/common';
 

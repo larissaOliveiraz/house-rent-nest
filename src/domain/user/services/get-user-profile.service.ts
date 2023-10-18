@@ -1,4 +1,4 @@
-import { EntityNotFoundException } from '@domain/exceptions/entity-not-found.exception';
+import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 import { UserRepository } from '@domain/user/user.repository';
 import { Injectable } from '@nestjs/common';
 

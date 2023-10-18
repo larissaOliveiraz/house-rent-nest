@@ -1,4 +1,4 @@
-import { InvalidCredentials } from '@domain/exceptions/invalid-credentialst.exception';
+import { InvalidCredentials } from '@domain/@exceptions/invalid-credentialst.exception';
 import { UserRepository } from '@domain/user/user.repository';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';

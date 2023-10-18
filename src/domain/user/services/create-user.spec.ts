@@ -1,6 +1,6 @@
 import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
 import { CreateUserService } from './create-user.service';
-import { EntityAlreadyExistsException } from '@domain/exceptions/entity-already-exists.exception';
+import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
 describe('Create User Service', () => {
   let userRepository: InMemoryUserRepository;

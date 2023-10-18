@@ -45,4 +45,5 @@ model Address {
 enum Role {
   CLIENT
   LANDLORD
+  ADMIN
 }
