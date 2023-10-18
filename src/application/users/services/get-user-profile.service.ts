@@ -10,12 +10,12 @@ export class GetUserProfileService {
   constructor(private userRepository: UserRepository) {}
 
   async execute({ id }: GetUserProfileRequest) {
-    const user = await this.userRepository.findById(id);
+    const profile = await this.userRepository.findById(id);
 
-    if (!user) {
+    if (!profile) {
       throw new NotFoundException('User not found.');
     }
 
-    return { user };
+    return { profile };
   }
 }

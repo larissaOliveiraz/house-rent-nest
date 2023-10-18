@@ -20,7 +20,7 @@ export class InMemoryUserRepository implements UserRepository {
 
   async create(user: CreateUserDTO) {
     const newUser: UserDTO = {
-      id: randomUUID(),
+      id: user.id ? user.id : randomUUID(),
       name: user.name,
       email: user.email,
       password: user.password,
