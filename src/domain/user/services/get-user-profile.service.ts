@@ -14,7 +14,7 @@ export class GetUserProfileService {
     const profile = await this.userRepository.findById(id);
 
     if (!profile) {
-      throw new EntityNotFoundException('User not found.');
+      throw new EntityNotFoundException('User');
     }
 
     return { profile };
