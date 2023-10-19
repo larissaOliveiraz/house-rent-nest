@@ -1,10 +1,12 @@
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 import { LocationRepository } from '../locations.repository';
+import { Injectable } from '@nestjs/common';
 
 type DeleteLocationRequest = {
   id: string;
 };
 
+@Injectable()
 export class DeleteLocationService {
   constructor(private locationRepository: LocationRepository) {}
 
