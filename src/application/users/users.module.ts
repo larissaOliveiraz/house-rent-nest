@@ -8,5 +8,6 @@ import { GetUserProfileService } from '../../domain/user/services/get-user-profi
   imports: [DatabaseModule],
   controllers: [UsersController],
   providers: [CreateUserService, GetUserProfileService],
+  exports: [GetUserProfileService],
 })
 export class UsersModule {}

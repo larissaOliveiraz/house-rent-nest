@@ -23,7 +23,7 @@ export class UsersController {
   @UseGuards(AuthGuard)
   async findOne(@Request() request) {
     const { profile } = await this.getUserProfileService.execute({
-      id: request.user.sub,
+      id: request.user.id,
     });
     const { password, ...userView } = profile;
     return userView;
