@@ -33,8 +33,6 @@ export class AuthGuard implements CanActivate {
       const { profile } = await this.getUserService.execute({ id: user.sub });
       request['user'] = profile;
 
-      console.log(request.user);
-
       return true;
     } catch (error) {
       throw new HttpException('Invalid token.', HttpStatus.UNAUTHORIZED);

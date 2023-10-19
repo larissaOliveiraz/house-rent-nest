@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { TypeRepository } from '../types.repository';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
@@ -5,6 +6,7 @@ type DeleteTypeRequest = {
   id: string;
 };
 
+@Injectable()
 export class DeleteTypeService {
   constructor(private typeRepository: TypeRepository) {}
 

@@ -7,6 +7,14 @@ import { PrismaService } from '../prisma.service';
 export class PrismaTypeRepository implements TypeRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findById(id: string) {
+    const type = await this.prisma.type.findUnique({
+      where: { id },
+    });
+
+    return type ? type : null;
+  }
+
   async findByDescription(description: string) {
     const type = await this.prisma.type.findUnique({
       where: { description },
@@ -21,5 +29,11 @@ export class PrismaTypeRepository implements TypeRepository {
     });
 
     return type;
+  }
+
+  async deleteById(id: string) {
+    return this.prisma.type.delete({
+      where: { id },
+    });
   }
 }
