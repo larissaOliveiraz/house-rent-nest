@@ -1,3 +1,4 @@
+import { GetUserProfileService } from '@domain/user/services/get-user-profile.service';
 import {
   CanActivate,
   ExecutionContext,
@@ -10,10 +11,13 @@ import { Request } from 'express';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private jwtService: JwtService,
+    private getUserService: GetUserProfileService,
+  ) {}
 
   async canActivate(context: ExecutionContext) {
-    const request: Request = await context.switchToHttp().getRequest();
+    const request = await context.switchToHttp().getRequest();
     const { authorization } = request.headers;
 
     if (!authorization) {
@@ -27,7 +31,10 @@ export class AuthGuard implements CanActivate {
         secret: process.env.JWT_SECRET,
       });
 
-      request['user'] = user;
+      const { profile } = await this.getUserService.execute({ id: user.sub });
+      request['user'] = profile;
+
+      console.log(request.user);
 
       return true;
     } catch (error) {
