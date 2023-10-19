@@ -1,10 +1,12 @@
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 import { LocationRepository } from '../locations.repository';
+import { Injectable } from '@nestjs/common';
 
 type CreateLocationRequest = {
   description: string;
 };
 
+@Injectable()
 export class CreateLocationService {
   constructor(private locationRepository: LocationRepository) {}
 
