@@ -20,6 +20,10 @@ export class InMemoryLocationRepository implements LocationRepository {
     return location ? location : null;
   }
 
+  async findAll() {
+    return this.locations;
+  }
+
   async create(data: CreateLocationDTO) {
     const location: Location = {
       id: data.id ? data.id : randomUUID(),
