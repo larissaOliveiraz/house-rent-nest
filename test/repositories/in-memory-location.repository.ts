@@ -6,6 +6,12 @@ import { randomUUID } from 'crypto';
 export class InMemoryLocationRepository implements LocationRepository {
   locations: Location[] = [];
 
+  async findById(id: string) {
+    const location = this.locations.find((item) => item.id === id);
+
+    return location ? location : null;
+  }
+
   async findByDescription(description: string) {
     const location = this.locations.find(
       (item) => item.description === description,
@@ -23,5 +29,13 @@ export class InMemoryLocationRepository implements LocationRepository {
     this.locations.push(location);
 
     return location;
+  }
+
+  async deleteById(id: string) {
+    const locationIndex = this.locations.findIndex((item) => item.id === id);
+
+    this.locations.splice(locationIndex, 1);
+
+    return this.locations[locationIndex];
   }
 }
