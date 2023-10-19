@@ -7,9 +7,9 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { CreateUserService } from '@domain/user/services/create-user.service';
+import { CreateUserService } from '@domain/users/services/create-user.service';
 import { CreateUserDTO } from '@common/dtos/user.dto';
-import { GetUserProfileService } from '../../domain/user/services/get-user-profile.service';
+import { GetUserProfileService } from '../../domain/users/services/get-user-profile.service';
 import { AuthGuard } from '@application/@guards/auth.guard';
 
 @Controller('users')

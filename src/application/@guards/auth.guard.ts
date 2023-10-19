@@ -1,4 +1,4 @@
-import { GetUserProfileService } from '@domain/user/services/get-user-profile.service';
+import { GetUserProfileService } from '@domain/users/services/get-user-profile.service';
 import {
   CanActivate,
   ExecutionContext,

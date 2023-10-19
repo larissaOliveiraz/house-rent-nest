@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTypeDTO } from '@common/dtos/house.dto';
-import { TypeRepository } from '@domain/house/type/types.repository';
+import { TypeRepository } from '@domain/house/types/types.repository';
 import { PrismaService } from '../prisma.service';
 
 @Injectable()

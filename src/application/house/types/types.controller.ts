@@ -3,8 +3,8 @@ import { AuthGuard } from '@application/@guards/auth.guard';
 import { RoleGuard } from '@application/@guards/role.guard';
 import { CreateTypeDTO } from '@common/dtos/house.dto';
 import { Role } from '@common/enums/role.enum';
-import { CreateTypeService } from '@domain/house/type/services/create-type.service';
-import { DeleteTypeService } from '@domain/house/type/services/delete-type.service';
+import { CreateTypeService } from '@domain/house/types/services/create-type.service';
+import { DeleteTypeService } from '@domain/house/types/services/delete-type.service';
 import {
   Body,
   Controller,

@@ -1,4 +1,4 @@
-import { User } from '@domain/user/user.entity';
+import { User } from '@domain/users/users.entity';
 import { CreateUserDTO } from '@common/dtos/user.dto';
 
 export abstract class UserRepository {

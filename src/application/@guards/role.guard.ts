@@ -1,6 +1,6 @@
 import { ROLES_KEY } from '@application/@decorators/roles.decorator';
 import { Role } from '@common/enums/role.enum';
-import { GetUserProfileService } from '@domain/user/services/get-user-profile.service';
+import { GetUserProfileService } from '@domain/users/services/get-user-profile.service';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 

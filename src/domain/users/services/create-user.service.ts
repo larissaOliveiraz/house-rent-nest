@@ -1,5 +1,5 @@
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
-import { UserRepository } from '@domain/user/user.repository';
+import { UserRepository } from '@domain/users/users.repository';
 import { Injectable } from '@nestjs/common';
 import { Role } from '@common/enums/role.enum';
 import { hash } from 'bcryptjs';

@@ -1,5 +1,5 @@
 import { InvalidCredentials } from '@domain/@exceptions/invalid-credentialst.exception';
-import { UserRepository } from '@domain/user/user.repository';
+import { UserRepository } from '@domain/users/users.repository';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare } from 'bcryptjs';

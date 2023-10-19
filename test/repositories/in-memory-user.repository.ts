@@ -1,8 +1,8 @@
-import { UserRepository } from '@domain/user/user.repository';
+import { UserRepository } from '@domain/users/users.repository';
 import { CreateUserDTO } from '@common/dtos/user.dto';
 import { Role } from '@common/enums/role.enum';
 import { randomUUID } from 'crypto';
-import { User } from '@domain/user/user.entity';
+import { User } from '@domain/users/users.entity';
 
 export class InMemoryUserRepository implements UserRepository {
   users: User[] = [];
