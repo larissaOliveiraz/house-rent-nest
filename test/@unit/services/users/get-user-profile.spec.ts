@@ -1,5 +1,5 @@
 import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
-import { GetUserProfileService } from './get-user-profile.service';
+import { GetUserProfileService } from '../../../../src/domain/users/services/get-user-profile.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 describe('Create User Service', () => {

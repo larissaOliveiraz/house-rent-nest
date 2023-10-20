@@ -1,5 +1,5 @@
 import { InMemoryLocationRepository } from '@test/repositories/in-memory-location.repository';
-import { CreateLocationService } from './create-location.service';
+import { CreateLocationService } from '../../../../../src/domain/house/locations/services/create-location.service';
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
 describe('Create Location Service', () => {

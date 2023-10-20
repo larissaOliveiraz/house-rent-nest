@@ -1,5 +1,5 @@
 import { InMemoryTypeRepository } from '@test/repositories/in-memory-type.repository';
-import { DeleteTypeService } from './delete-type.service';
+import { DeleteTypeService } from '../../../../../src/domain/house/types/services/delete-type.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 describe('Delete Type Service', () => {

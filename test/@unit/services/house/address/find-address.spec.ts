@@ -1,5 +1,5 @@
 import { InMemoryAddressRepository } from '@test/repositories/in-memory-address.repository';
-import { FindAddressService } from './find-address.service';
+import { FindAddressService } from '../../../../../src/domain/house/address/services/find-address.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 describe('Find Address Service', () => {

@@ -1,5 +1,5 @@
 import { InMemoryAddressRepository } from '@test/repositories/in-memory-address.repository';
-import { DeleteAddressService } from './delete-address.service';
+import { DeleteAddressService } from '../../../../../src/domain/house/address/services/delete-address.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 describe('Create Address Service', () => {

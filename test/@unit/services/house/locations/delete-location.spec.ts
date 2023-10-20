@@ -1,5 +1,5 @@
 import { InMemoryLocationRepository } from '@test/repositories/in-memory-location.repository';
-import { DeleteLocationService } from './delete-location.service';
+import { DeleteLocationService } from '../../../../../src/domain/house/locations/services/delete-location.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 describe('Delete Location Service', () => {

@@ -1,5 +1,5 @@
 import { InMemoryLocationRepository } from '@test/repositories/in-memory-location.repository';
-import { GetLocationsService } from './get-locations.service';
+import { GetLocationsService } from '../../../../../src/domain/house/locations/services/get-locations.service';
 
 describe('Get Locations Service', () => {
   let locationRepository: InMemoryLocationRepository;

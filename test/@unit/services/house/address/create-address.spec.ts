@@ -1,5 +1,5 @@
 import { InMemoryAddressRepository } from '@test/repositories/in-memory-address.repository';
-import { CreateAddressService } from './create-address.service';
+import { CreateAddressService } from '../../../../../src/domain/house/address/services/create-address.service';
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
 describe('Create Address Service', () => {

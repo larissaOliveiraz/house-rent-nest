@@ -1,5 +1,5 @@
 import { InMemoryUserRepository } from '@test/repositories/in-memory-user.repository';
-import { SignInService } from './sign-in.service';
+import { SignInService } from '../../../../src/domain/auth/sign-in.service';
 import { JwtService } from '@nestjs/jwt';
 import { hash } from 'bcryptjs';
 import { InvalidCredentials } from '@domain/@exceptions/invalid-credentialst.exception';

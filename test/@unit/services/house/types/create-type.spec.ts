@@ -1,5 +1,5 @@
 import { InMemoryTypeRepository } from '@test/repositories/in-memory-type.repository';
-import { CreateTypeService } from './create-type.service';
+import { CreateTypeService } from '../../../../../src/domain/house/types/services/create-type.service';
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
 describe('Create Type Service', () => {

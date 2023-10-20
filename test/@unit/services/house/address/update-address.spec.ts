@@ -1,5 +1,5 @@
 import { InMemoryAddressRepository } from '@test/repositories/in-memory-address.repository';
-import { UpdateAddressService } from './update-address.service';
+import { UpdateAddressService } from '../../../../../src/domain/house/address/services/update-address.service';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
