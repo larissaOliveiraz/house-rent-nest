@@ -36,4 +36,12 @@ export class InMemoryAddressRepository implements AddressRepository {
 
     return address;
   }
+
+  async deleteById(id: string) {
+    const addressIndex = this.addresses.findIndex((item) => item.id === id);
+
+    this.addresses.splice(addressIndex, 1);
+
+    return this.addresses[addressIndex];
+  }
 }
