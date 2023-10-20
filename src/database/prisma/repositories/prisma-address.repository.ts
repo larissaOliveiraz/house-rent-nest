@@ -8,6 +8,14 @@ import { Injectable } from '@nestjs/common';
 export class PrismaAddressRepository implements AddressRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findById(id: string) {
+    const address = await this.prisma.address.findUnique({
+      where: { id },
+    });
+
+    return address ? address : null;
+  }
+
   async findFullAddress(data: CheckAddressDTO) {
     const address = await this.prisma.address.findFirst({
       where: {
