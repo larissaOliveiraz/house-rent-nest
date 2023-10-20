@@ -6,6 +6,11 @@ import { randomUUID } from 'crypto';
 export class InMemoryAddressRepository implements AddressRepository {
   addresses: Address[] = [];
 
+  async findById(id: string) {
+    const address = this.addresses.find((item) => item.id === id);
+    return address ? address : null;
+  }
+
   async findFullAddress(data: CheckAddressDTO) {
     const address = this.addresses.find(
       (item) =>
