@@ -24,6 +24,12 @@ export class PrismaLocationRepository implements LocationRepository {
     return location ? location : null;
   }
 
+  async findAll() {
+    const locations = await this.prisma.location.findMany();
+
+    return locations;
+  }
+
   async create(data: CreateLocationDTO) {
     const location = await this.prisma.location.create({
       data,

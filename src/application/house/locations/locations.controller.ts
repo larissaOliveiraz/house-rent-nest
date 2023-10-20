@@ -5,10 +5,12 @@ import { CreateLocationDTO } from '@common/dtos/house.dto';
 import { Role } from '@common/enums/role.enum';
 import { CreateLocationService } from '@domain/house/locations/services/create-location.service';
 import { DeleteLocationService } from '@domain/house/locations/services/delete-location.service';
+import { GetLocationsService } from '@domain/house/locations/services/get-locations.service';
 import {
   Body,
   Controller,
   Delete,
+  Get,
   HttpCode,
   Param,
   Post,
@@ -20,7 +22,13 @@ export class LocationsController {
   constructor(
     private createLocationService: CreateLocationService,
     private deleteLocationService: DeleteLocationService,
+    private getLocationsService: GetLocationsService,
   ) {}
+
+  @Get()
+  async findAll() {
+    return this.getLocationsService.execute();
+  }
 
   @Post()
   @Roles(Role.ADMIN)
