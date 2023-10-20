@@ -4,10 +4,11 @@ import { CreateAddressService } from '@domain/house/address/services/create-addr
 import { Module } from '@nestjs/common';
 import { AddressController } from './address.controller';
 import { FindAddressService } from '@domain/house/address/services/find-address.service';
+import { DeleteAddressService } from '@domain/house/address/services/delete-address.service';
 
 @Module({
   imports: [DatabaseModule, UsersModule],
   controllers: [AddressController],
-  providers: [CreateAddressService, FindAddressService],
+  providers: [CreateAddressService, FindAddressService, DeleteAddressService],
 })
 export class AddressModule {}
