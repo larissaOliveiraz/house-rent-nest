@@ -38,4 +38,10 @@ export class PrismaAddressRepository implements AddressRepository {
 
     return address;
   }
+
+  async deleteById(id: string) {
+    return this.prisma.address.delete({
+      where: { id },
+    });
+  }
 }
