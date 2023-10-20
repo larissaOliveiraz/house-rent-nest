@@ -22,3 +22,16 @@ export class CreateAddressDTO extends BaseAddressDTO {
 export class UpdateAddressDTO extends BaseAddressDTO {}
 
 export class CheckAddressDTO extends BaseAddressDTO {}
+
+export class CreateHouseDTO {
+  id?: string;
+  title: string;
+  description: string;
+  dailyPrice: number;
+  dailyFine: number;
+
+  userId: string;
+  typeId: string;
+  locationId: string;
+  addressId: string;
+}
