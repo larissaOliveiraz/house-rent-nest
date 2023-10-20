@@ -8,7 +8,15 @@ import { AddressRepository } from '@domain/house/address/address.repository';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 
 type CreateHouseRequest = {
-  data: CreateHouseDTO;
+  title: string;
+  description: string;
+  dailyPrice: number;
+  dailyFine: number;
+
+  userId: string;
+  typeId: string;
+  locationId: string;
+  addressId: string;
 };
 
 @Injectable()
@@ -21,7 +29,7 @@ export class CreateHouseService {
     private addressRepository: AddressRepository,
   ) {}
 
-  async execute({ data }: CreateHouseRequest) {
+  async execute(data: CreateHouseRequest) {
     const user = await this.userRepository.findById(data.userId);
     if (!user) throw new EntityNotFoundException('User', data.userId);
 
