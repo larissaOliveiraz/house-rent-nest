@@ -1,4 +1,8 @@
-import { CheckAddressDTO, CreateAddressDTO } from '@common/dtos/house.dto';
+import {
+  CheckAddressDTO,
+  CreateAddressDTO,
+  UpdateAddressDTO,
+} from '@common/dtos/house.dto';
 import { Address } from '@domain/house/address/address.entity';
 import { AddressRepository } from '@domain/house/address/address.repository';
 import { randomUUID } from 'crypto';
@@ -35,6 +39,22 @@ export class InMemoryAddressRepository implements AddressRepository {
     this.addresses.push(address);
 
     return address;
+  }
+
+  async update(id: string, data: UpdateAddressDTO) {
+    const addressIndex = this.addresses.findIndex((item) => item.id === id);
+
+    const updatedAddress: Address = {
+      id: this.addresses[addressIndex].id,
+      street: data.street,
+      number: data.number,
+      city: data.city,
+      state: data.state,
+    };
+
+    this.addresses.splice(addressIndex, 1, updatedAddress);
+
+    return updatedAddress;
   }
 
   async deleteById(id: string) {

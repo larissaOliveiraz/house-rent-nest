@@ -19,4 +19,6 @@ export class CreateAddressDTO extends BaseAddressDTO {
   id?: string;
 }
 
+export class UpdateAddressDTO extends BaseAddressDTO {}
+
 export class CheckAddressDTO extends BaseAddressDTO {}
