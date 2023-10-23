@@ -13,7 +13,7 @@ export class PrismaUserRepository implements UserRepository {
       where: { id },
     });
 
-    return user ? PrismaMapper.toDomain(user) : null;
+    return user ? PrismaMapper.toUserDomain(user) : null;
   }
 
   async findByEmail(email: string) {
@@ -23,7 +23,7 @@ export class PrismaUserRepository implements UserRepository {
       },
     });
 
-    return user ? PrismaMapper.toDomain(user) : null;
+    return user ? PrismaMapper.toUserDomain(user) : null;
   }
 
   async create(newUser: CreateUserDTO) {
@@ -31,6 +31,6 @@ export class PrismaUserRepository implements UserRepository {
       data: newUser,
     });
 
-    return PrismaMapper.toDomain(user);
+    return PrismaMapper.toUserDomain(user);
   }
 }

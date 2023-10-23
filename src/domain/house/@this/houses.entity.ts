@@ -5,8 +5,8 @@ export class House {
   dailyPrice: number;
   dailyFine: number;
 
-  user_id: string;
-  type_id: string;
-  location_id: string;
-  address_id: string;
+  userId: string;
+  typeId: string;
+  locationId: string;
+  addressId: string;
 }
