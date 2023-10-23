@@ -8,6 +8,14 @@ import { Injectable } from '@nestjs/common';
 export class PrismaHouseRepository implements HouseRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findById(id: string) {
+    const house = await this.prisma.house.findUnique({
+      where: { id },
+    });
+
+    return house ? PrismaMapper.toHouseDomain(house) : null;
+  }
+
   async findByAddress(addressId: string) {
     const house = await this.prisma.house.findFirst({
       where: { address_id: addressId },
