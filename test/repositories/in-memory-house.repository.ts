@@ -6,6 +6,12 @@ import { randomUUID } from 'crypto';
 export class InMemoryHouseRepository implements HouseRepository {
   houses: House[] = [];
 
+  async findById(id: string) {
+    const house = this.houses.find((item) => item.id === id);
+
+    return house ? house : null;
+  }
+
   async findByAddress(addressId: string) {
     const house = this.houses.find((item) => item.addressId === addressId);
 
