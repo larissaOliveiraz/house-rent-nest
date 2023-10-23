@@ -1,3 +1,4 @@
+import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
 import { CreateHouseService } from '@domain/house/@this/services/create-house.service';
 import { AddressFactory } from '@test/factories/address.factory';
@@ -50,7 +51,7 @@ describe('Create House Service', () => {
       addressId: 'address-01',
     });
 
-    expect(house.user_id).toEqual('user-01');
+    expect(house.userId).toEqual('user-01');
     expect(houseRepository.houses).toHaveLength(1);
   });
 
@@ -112,5 +113,31 @@ describe('Create House Service', () => {
         addressId: 'non-existing-id',
       }),
     ).rejects.toBeInstanceOf(EntityNotFoundException);
+  });
+
+  it('should not be able to create a house with the same address as another house', async () => {
+    await service.execute({
+      title: 'new-title',
+      description: 'new-description',
+      dailyPrice: 100,
+      dailyFine: 200,
+      userId: 'user-01',
+      typeId: 'type-01',
+      locationId: 'location-01',
+      addressId: 'address-01',
+    });
+
+    await expect(() =>
+      service.execute({
+        title: 'new-title',
+        description: 'new-description',
+        dailyPrice: 100,
+        dailyFine: 200,
+        userId: 'user-01',
+        typeId: 'type-01',
+        locationId: 'location-01',
+        addressId: 'address-01',
+      }),
+    ).rejects.toBeInstanceOf(EntityAlreadyExistsException);
   });
 });

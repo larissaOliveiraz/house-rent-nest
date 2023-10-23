@@ -6,6 +6,7 @@ import { TypeRepository } from '@domain/house/types/types.repository';
 import { LocationRepository } from '@domain/house/locations/locations.repository';
 import { AddressRepository } from '@domain/house/address/address.repository';
 import { EntityNotFoundException } from '@domain/@exceptions/entity-not-found.exception';
+import { EntityAlreadyExistsException } from '@domain/@exceptions/entity-already-exists.exception';
 
 type CreateHouseRequest = {
   title: string;
@@ -42,6 +43,13 @@ export class CreateHouseService {
 
     const address = await this.addressRepository.findById(data.addressId);
     if (!address) throw new EntityNotFoundException('Address', data.addressId);
+
+    const addressUnavailable = await this.houseRepository.findByAddress(
+      data.addressId,
+    );
+    if (addressUnavailable) {
+      throw new EntityAlreadyExistsException('House');
+    }
 
     const house = await this.houseRepository.create(data);
 

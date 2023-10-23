@@ -6,6 +6,12 @@ import { randomUUID } from 'crypto';
 export class InMemoryHouseRepository implements HouseRepository {
   houses: House[] = [];
 
+  async findByAddress(addressId: string) {
+    const house = this.houses.find((item) => item.addressId === addressId);
+
+    return house ? house : null;
+  }
+
   async create(data: CreateHouseDTO) {
     const house: House = {
       id: data.id ?? randomUUID(),
@@ -13,10 +19,10 @@ export class InMemoryHouseRepository implements HouseRepository {
       description: data.description,
       dailyPrice: data.dailyPrice,
       dailyFine: data.dailyFine,
-      user_id: data.userId,
-      type_id: data.typeId,
-      location_id: data.locationId,
-      address_id: data.addressId,
+      userId: data.userId,
+      typeId: data.typeId,
+      locationId: data.locationId,
+      addressId: data.addressId,
     };
 
     this.houses.push(house);
