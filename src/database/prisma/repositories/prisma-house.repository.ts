@@ -2,9 +2,19 @@ import { CreateHouseDTO } from '@common/dtos/house.dto';
 import { HouseRepository } from '@domain/house/@this/houses.repository';
 import { PrismaService } from '../prisma.service';
 import { PrismaMapper } from '../prisma.mapper';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class PrismaHouseRepository implements HouseRepository {
   constructor(private prisma: PrismaService) {}
+
+  async findByAddress(addressId: string) {
+    const house = await this.prisma.house.findFirst({
+      where: { address_id: addressId },
+    });
+
+    return house ? PrismaMapper.toHouseDomain(house) : null;
+  }
 
   async create(data: CreateHouseDTO) {
     const house = await this.prisma.house.create({
@@ -20,8 +30,6 @@ export class PrismaHouseRepository implements HouseRepository {
       },
     });
 
-    const houseDomain = PrismaMapper.toHouseDomain(house);
-
-    return houseDomain;
+    return PrismaMapper.toHouseDomain(house);
   }
 }

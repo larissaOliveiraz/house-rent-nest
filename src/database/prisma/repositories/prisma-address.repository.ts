@@ -1,4 +1,8 @@
-import { CheckAddressDTO, CreateAddressDTO } from '@common/dtos/house.dto';
+import {
+  CheckAddressDTO,
+  CreateAddressDTO,
+  UpdateAddressDTO,
+} from '@common/dtos/house.dto';
 import { Address } from '@domain/house/address/address.entity';
 import { AddressRepository } from '@domain/house/address/address.repository';
 import { PrismaService } from '../prisma.service';
@@ -33,6 +37,15 @@ export class PrismaAddressRepository implements AddressRepository {
 
   async create(data: CreateAddressDTO) {
     const address = await this.prisma.address.create({
+      data,
+    });
+
+    return address;
+  }
+
+  async update(id: string, data: UpdateAddressDTO) {
+    const address = await this.prisma.address.update({
+      where: { id },
       data,
     });
 

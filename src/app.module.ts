@@ -5,6 +5,7 @@ import { AuthModule } from './application/auth/auth.module';
 import { TypesModule } from './application/houses/types/types.module';
 import { LocationsModule } from './application/houses/locations/locations.module';
 import { AddressModule } from './application/houses/address/address.module';
+import { HousesModule } from '@application/houses/@this/houses.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { AddressModule } from './application/houses/address/address.module';
     TypesModule,
     LocationsModule,
     AddressModule,
+    HousesModule,
   ],
   controllers: [],
   providers: [],

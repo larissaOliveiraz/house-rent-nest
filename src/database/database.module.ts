@@ -8,6 +8,8 @@ import { PrismaLocationRepository } from './prisma/repositories/prisma-location.
 import { LocationRepository } from '@domain/house/locations/locations.repository';
 import { AddressRepository } from '@domain/house/address/address.repository';
 import { PrismaAddressRepository } from './prisma/repositories/prisma-address.repository';
+import { HouseRepository } from '@domain/house/@this/houses.repository';
+import { PrismaHouseRepository } from './prisma/repositories/prisma-house.repository';
 
 @Module({
   providers: [
@@ -16,6 +18,7 @@ import { PrismaAddressRepository } from './prisma/repositories/prisma-address.re
     { provide: TypeRepository, useClass: PrismaTypeRepository },
     { provide: LocationRepository, useClass: PrismaLocationRepository },
     { provide: AddressRepository, useClass: PrismaAddressRepository },
+    { provide: HouseRepository, useClass: PrismaHouseRepository },
   ],
   exports: [
     PrismaService,
@@ -23,6 +26,7 @@ import { PrismaAddressRepository } from './prisma/repositories/prisma-address.re
     TypeRepository,
     LocationRepository,
     AddressRepository,
+    HouseRepository,
   ],
 })
 export class DatabaseModule {}
