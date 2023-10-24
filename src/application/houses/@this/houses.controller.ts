@@ -5,14 +5,36 @@ import { CreateHouseDTO } from '@common/dtos/house.dto';
 import { Role } from '@common/enums/role.enum';
 import { CreateHouseService } from '@domain/house/@this/services/create-house.service';
 import { FindHouseService } from '@domain/house/@this/services/find-house.service';
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { GetHousesService } from '@domain/house/@this/services/get-houses.service';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 
 @Controller('houses')
 export class HousesController {
   constructor(
     private createHouseService: CreateHouseService,
     private findHouseService: FindHouseService,
+    private getHousesService: GetHousesService,
   ) {}
+
+  @Get()
+  async findAll(@Request() request) {
+    const { title, location, type } = request.query;
+    const { houses } = await this.getHousesService.execute({
+      title,
+      locationId: location,
+      typeId: type,
+    });
+
+    return houses;
+  }
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
