@@ -3,6 +3,7 @@ import { HouseRepository } from '@domain/house/@this/houses.repository';
 import { PrismaService } from '../prisma.service';
 import { PrismaMapper } from '../prisma.mapper';
 import { Injectable } from '@nestjs/common';
+import { House } from '@domain/house/@this/houses.entity';
 
 @Injectable()
 export class PrismaHouseRepository implements HouseRepository {
@@ -22,6 +23,52 @@ export class PrismaHouseRepository implements HouseRepository {
     });
 
     return house ? PrismaMapper.toHouseDomain(house) : null;
+  }
+
+  async findManyByLocation(locationId: string) {
+    const houses = await this.prisma.house.findMany({
+      where: { location_id: locationId },
+    });
+
+    const housesDomain = houses.map((house) =>
+      PrismaMapper.toHouseDomain(house),
+    );
+
+    return housesDomain;
+  }
+
+  async findManyByType(typeId: string) {
+    const houses = await this.prisma.house.findMany({
+      where: { type_id: typeId },
+    });
+
+    const housesDomain = houses.map((house) =>
+      PrismaMapper.toHouseDomain(house),
+    );
+
+    return housesDomain;
+  }
+
+  async findManyByTitle(title: string) {
+    const houses = await this.prisma.house.findMany({
+      where: { title },
+    });
+
+    const housesDomain = houses.map((house) =>
+      PrismaMapper.toHouseDomain(house),
+    );
+
+    return housesDomain;
+  }
+
+  async findAll() {
+    const houses = await this.prisma.house.findMany();
+
+    const housesDomain = houses.map((house) =>
+      PrismaMapper.toHouseDomain(house),
+    );
+
+    return housesDomain;
   }
 
   async create(data: CreateHouseDTO) {
