@@ -18,6 +18,25 @@ export class InMemoryHouseRepository implements HouseRepository {
     return house ? house : null;
   }
 
+  async findManyByLocation(locationId: string) {
+    const houses = this.houses.filter((item) => item.locationId === locationId);
+    return houses;
+  }
+
+  async findManyByType(typeId: string) {
+    const houses = this.houses.filter((item) => item.typeId === typeId);
+    return houses;
+  }
+
+  async findManyByTitle(title: string) {
+    const houses = this.houses.filter((item) => item.title === title);
+    return houses;
+  }
+
+  async findAll() {
+    return this.houses;
+  }
+
   async create(data: CreateHouseDTO) {
     const house: House = {
       id: data.id ?? randomUUID(),
