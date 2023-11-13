@@ -15,7 +15,8 @@ model User {
   role       Role     @default(CLIENT)
   created_at DateTime @default(now())
 
-  House House[]
+  House  House[]
+  Rental Rental[]
 
   @@map("users")
 }
@@ -71,6 +72,7 @@ model House {
 
   ItemOnHouse ItemOnHouse[]
   RoomOnHouse RoomOnHouse[]
+  Rental      Rental[]
 
   @@map("houses")
 }
@@ -114,6 +116,28 @@ model RoomOnHouse {
 
   @@id([room_id, house_id])
   @@map("rooms_on_houses")
+}
+
+model Rental {
+  id                String    @id @default(uuid())
+  entry_code        String
+  creation_date     DateTime  @default(now())
+  cancellation_date DateTime?
+  start_date        DateTime
+  end_date          DateTime
+  checkin_date      DateTime?
+  checkout_date     DateTime?
+  subtotal          Decimal
+  total_fine        Decimal
+  total_price       Decimal
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  house    House  @relation(fields: [house_id], references: [id])
+  house_id String
+
+  @@map("rentals")
 }
 
 enum Role {
